@@ -1,4 +1,4 @@
-import React from "react";
+import React, {  useState } from "react";
 import {
   useTable,
   useFilters,
@@ -13,14 +13,15 @@ import {
   CloudDownloadIcon,
   PlusIcon,
 } from "@heroicons/react/solid";
-import { Button, PageButton } from "../shared/Button";
+import { Button } from "../shared/Button";
 import { classNames } from "../shared/Utils";
-import { SortIcon, SortUpIcon, SortDownIcon } from "../shared/Icons";
+import { SortIcon} from "../shared/Icons";
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import { ArrowUpIcon } from "@heroicons/react/solid";
-import { data } from "./Table";
+import { datas } from "./content";
 
 // Define a default UI for filtering
+
 let count;
 function GlobalFilter({
   preGlobalFilteredRows,
@@ -199,7 +200,6 @@ export function ActionCell({ value, column, row }) {
       </div>
       <div className="flex-shrink-0 h-10 w-10 cursor-pointer hover:text-blue-600">
         <button onClick={""}>
-          
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -221,6 +221,31 @@ export function ActionCell({ value, column, row }) {
 }
 
 function Table1({ columns, data }) {
+  const [modal, setModal] = useState(false);
+  const [users, setUsers] = useState(data);
+  const [newUserdata, setNewUserdata] = useState({
+    name: "",
+    email: "",
+    status: "",
+    role: "",
+    imgUrl:
+      "https://images.unsplash.com/photo-1532417344469-368f9ae6d187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+  });
+
+  const handleChange = (e) => {
+    setNewUserdata({
+      ...newUserdata,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const AddUser = (e) => {
+    e.preventDefault();
+    setModal(false);
+    datas.push(newUserdata)
+    console.log(datas)
+    
+  };
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
@@ -276,12 +301,96 @@ function Table1({ columns, data }) {
             <CloudDownloadIcon className="w-4 h-4 mx-2 text-black" />
             Download CSV
           </button>
-          <button className="px-3 py-2 w-fit  font-semibold text-sm rounded-lg border-2 flex items-center text-white bg-blue-600">
+          <button
+            className="px-3 py-2 w-fit  font-semibold text-sm rounded-lg border-2 flex items-center text-white bg-blue-600"
+            onClick={() => setModal(true)}
+          >
             <PlusIcon className="w-4 h-4 mx-2 text-white" />
             Add User
           </button>
         </div>
       </div>
+      {modal ? (
+        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto   fixed inset-0 z-50 outline-none focus:outline-none">
+          <div className="flex flex-col max-w-md gap-2 p-6 rounded-md shadow-md bg-gray-400 text-gray-100">
+            <form onSubmit={AddUser}>
+              <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                <div className="col-span-full sm:col-span-3">
+                  <label htmlFor="name" className="text-sm">
+                    Full Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Full Name"
+                    value={newUserdata.name}
+                    onChange={handleChange}
+                    className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                  />
+                </div>
+                <div className="col-span-full sm:col-span-3">
+                  <label htmlFor="email" className="text-sm">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    value={newUserdata.email}
+                    onChange={handleChange}
+                    className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                  />
+                </div>
+                <div className="col-span-full">
+                  <label htmlFor="status" className="text-sm">
+                    Status
+                  </label>
+                  <input
+                    id="status"
+                    type="text"
+                    name="status"
+                    placeholder="Status"
+                    value={newUserdata.status}
+                    onChange={handleChange}
+                    className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                  />
+                </div>
+                <div className="col-span-full sm:col-span-2">
+                  <label htmlFor="role" className="text-sm">
+                    Role
+                  </label>
+                  <input
+                    id="role"
+                    type="text"
+                    name="role"
+                    placeholder="Role"
+                    value={newUserdata.role}
+                    onChange={handleChange}
+                    className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
+                  />
+                </div>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  type="submit"
+                  className="px-4 my-2 py-2 border rounded-md border-gray-100"
+                >
+                  Add
+                </button>
+                <button
+                  type="close"
+                  className="px-4 my-2 py-2 border rounded-md  bg-red-600 text-gray-100 border-red-200"
+                  onClick={() => setModal(false)}
+                >
+                  close
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      ) : null}
       {/* table */}
       <div className=" flex flex-col">
         <div className="-my-2 overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">

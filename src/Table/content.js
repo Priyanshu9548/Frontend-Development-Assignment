@@ -1,0 +1,36 @@
+export const datas = [{
+        name: "Preeti Singh",
+        email: "preeti@gmail.com",
+        status: "Active",
+        role: "Admin",
+        imgUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+    },
+    {
+        name: "David Kendix",
+        email: "cody.fisher@example.com",
+        status: "invited",
+        role: "Admin",
+        imgUrl: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+    },
+    {
+        name: "Radhika",
+        email: "radhika@example.com",
+        status: "Active",
+        role: "Admin",
+        imgUrl: "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+    },
+    {
+        name: "Anderson",
+        email: "anderson@example.com",
+        status: "invited",
+        role: "Sales leader",
+        imgUrl: "https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+    },
+    {
+        name: "Kristin Watson",
+        email: "kristin.watson@example.com",
+        status: "invited",
+        role: "Admin",
+        imgUrl: "https://images.unsplash.com/photo-1532417344469-368f9ae6d187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+    },
+];
