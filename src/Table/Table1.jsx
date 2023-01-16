@@ -242,8 +242,6 @@ function Table1({ columns, data }) {
   const AddUser = (e) => {
     e.preventDefault();
     setModal(false);
-    datas.push(newUserdata)
-    console.log(datas)
     
   };
   // Use the state and functions returned from useTable to build your UI

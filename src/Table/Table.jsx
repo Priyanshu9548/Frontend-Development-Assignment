@@ -9,19 +9,19 @@ import Table1, {
 } from "./Table1";
 
 const Table = () => {
-  const [user, setUsers] = useState([]);
+//   const [user, setUsers] = useState([]);
 
-  useEffect(() => {
-    const users = datas;
-    setUsers(users);
-    // console.log(users);
-  }, []);
+//   useEffect(() => {
+//     const users = datas;
+//     setUsers(users);
+//     // console.log(users);
+//   }, []);
 
-  const data_func = () => {
-    let data = user;
-    console.log(data);
-    return [...data, ...data, ...data];
-  };
+//   const data_func = () => {
+//     let data = user;
+//     console.log(data);
+//     return [...data, ...data, ...data];
+//   };
 
   const columns = React.useMemo(
     () => [
@@ -57,7 +57,7 @@ const Table = () => {
     []
   );
 
-  const data = React.useMemo(() => data_func(), []);
+  const data = React.useMemo(() => datas, []);
 
   return (
     // <div className="min-h-screen bg-gray-100 text-gray-900">
