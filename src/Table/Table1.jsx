@@ -3,7 +3,6 @@ import {
   useTable,
   useFilters,
   useGlobalFilter,
-  useAsyncDebounce,
   useSortBy,
   usePagination,
 } from "react-table";
@@ -194,7 +193,6 @@ export function ActionCell({ value, column, row }) {
 
 function Table1({ columns, data }) {
   const [modal, setModal] = useState(false);
-  const [users, setUsers] = useState(data);
   const [newUserdata, setNewUserdata] = useState({
     name: "",
     email: "",
@@ -229,15 +227,12 @@ function Table1({ columns, data }) {
     canPreviousPage,
     canNextPage,
     pageOptions,
-    pageCount,
-    gotoPage,
     nextPage,
     previousPage,
     setPageSize,
 
     state,
     preGlobalFilteredRows,
-    setGlobalFilter,
   } = useTable(
     {
       columns,
