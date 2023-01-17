@@ -18,7 +18,7 @@ import { classNames } from "../shared/Utils";
 import { SortIcon} from "../shared/Icons";
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import { ArrowUpIcon } from "@heroicons/react/solid";
-import { datas } from "./content";
+
 
 // Define a default UI for filtering
 

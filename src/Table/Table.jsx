@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { datas } from "./content";
 import Table1, {
   ActionCell,

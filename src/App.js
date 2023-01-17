@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
-import { useTable } from "react-table";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
+
+import { BrowserRouter as Router } from "react-router-dom";
 import Main from "./Main";
 import UserPage from "./UserPage";
 
