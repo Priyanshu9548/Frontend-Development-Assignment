@@ -6,6 +6,13 @@ export const datas = [{
         imgUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
     },
     {
+        name: "Radhika",
+        email: "radhika@example.com",
+        status: "Active",
+        role: "Admin",
+        imgUrl: "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+    },
+    {
         name: "David Kendix",
         email: "cody.fisher@example.com",
         status: "invited",
